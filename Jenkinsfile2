@@ -6,12 +6,14 @@ pipeline {
            echo " hello world"
           }
        }
-       stage('README')
+       stage('cat README'){
          when{
-            branch "feature1"
+            branch "feature1*"
           }
          steps{
-             echo "README.md"  
-         }
+             sh '''
+                cat README.md 
+              } 
+          }
+       }
     }
- }
